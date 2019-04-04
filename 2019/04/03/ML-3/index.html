@@ -112,10 +112,18 @@
 <meta property="og:site_name" content="Bamda&#39;s Magical Realm">
 <meta property="og:description" content="ML-3 Problem of Overfitting Which means High Variance. When our hypothesis function is too much complex whcih contains a lot of parameters, the shape of the hypothesis can be very complex to nearly">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-04T05:32:00.811Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/03/ML-3/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/03/ML-3/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/03/ML-3/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/03/ML-3/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/03/ML-3/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/03/ML-3/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/03/ML-3/7.png">
+<meta property="og:updated_time" content="2019-04-04T15:09:14.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="My Machine Learning Study Note - Part.3">
 <meta name="twitter:description" content="ML-3 Problem of Overfitting Which means High Variance. When our hypothesis function is too much complex whcih contains a lot of parameters, the shape of the hypothesis can be very complex to nearly">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/03/ML-3/1.png">
 
 
 
@@ -460,7 +468,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-04 13:32:00" itemprop="dateModified" datetime="2019-04-04T13:32:00+08:00">2019-04-04</time>
+                <time title="Modified: 2019-04-04 23:09:14" itemprop="dateModified" datetime="2019-04-04T23:09:14+08:00">2019-04-04</time>
               
             
           </span>
@@ -515,8 +523,8 @@
         <h1 id="ml-3">ML-3</h1>
 <h2 id="problem-of-overfitting">Problem of Overfitting</h2>
 <p>Which means <strong>High Variance</strong>. When our hypothesis function is too much complex whcih contains a lot of parameters, <strong>the shape of the hypothesis can be very complex to nearly reach each of those points</strong>.This problem is called <strong>Overfitting</strong> This can fail to protrait the model.</p>
-<p><em>Regression Situation</em> !()[1.png]</p>
-<p><em>Logistic Situation</em> !()[2.png]</p>
+<p><em>Regression Situation</em> <img src="1.png"></p>
+<p><em>Logistic Situation</em> <img src="2.png"></p>
 <p>As the number of feature grows, it is header to plot the graph to decide whether it is overfitted.</p>
 <h3 id="possible-solutions">Possible solutions</h3>
 <ol type="1">
@@ -530,25 +538,29 @@
 <li>Regularization</li>
 </ol>
 <ul>
-<li>Keep all the features, but reduce magnitude/values of parameters.<span class="math display">\[\_theta_j\]</span></li>
-<li>Works well when have a lot of features, each of which contributes a bit to predicting <span class="math display">\[y\]</span></li>
+<li>Keep all the features, but reduce magnitude/values of parameters.<span class="math inline">\(\theta{_j}\)</span></li>
+<li>Works well when have a lot of features, each of which contributes a bit to predicting <span class="math inline">\(y\)</span></li>
 </ul>
 <h2 id="regularization">Regularization</h2>
 <p>Small values for parameters. * Simplify hypothesis * Less prone to overfitting</p>
-<p>!()[3.png] <em>Normally, we do not regularize parameter <span class="math display">\[\theta\below{0}\]</span></em></p>
-<p>Where the <span class="math display">\[\lamda\]</span> is the <strong>Regularization Parameter</strong> As the <span class="math display">\[\lamda\]</span> grows, it can erase the effect of the parameter. * Too large <span class="math display">\[\lamda\]</span> will cause <strong>under fitting</strong>. * Too small <span class="math display">\[\lamda\]</span> will fail to regularize.</p>
+<p><img src="3.png"> <em>Normally, we do not regularize parameter <span class="math inline">\(\theta{_0}\)</span></em></p>
+<p>Where the <span class="math inline">\(\lambda\)</span> is the <strong>Regularization Parameter</strong> As the <span class="math inline">\(\lambda\)</span> grows, it can erase the effect of the parameter.</p>
+<ul>
+<li><p>Too large <span class="math inline">\(\lambda\)</span> will cause <strong>under fitting</strong>.</p></li>
+<li><p>Too small <span class="math inline">\(\lambda\)</span> will fail to regularize.</p></li>
+</ul>
 <h3 id="regularization-of-linear-regression">Regularization of Linear Regression</h3>
-<p>Gradient descent with regularization: !()[4.png]</p>
-<p>For linear regression, the gradient descent with regularization can be represented as: !()[5.png]</p>
+<p>Gradient descent with regularization: <img src="4.png"></p>
+<p>For linear regression, the gradient descent with regularization can be represented as: <img src="5.png"></p>
 <blockquote>
 <p>Using Regularization dealing with Non-invertibility issus in <strong>normal equation</strong>.</p>
 </blockquote>
-<p>!()[6.png]</p>
+<p><img src="6.png"></p>
 <p>L is a matrix with 0 at the top left and 1's down the diagonal, with 0's everywhere else. It should have dimension (n+1)×(n+1). Intuitively, this is the identity matrix (though we are not including <code>x0</code>), multiplied with a single real number λ.</p>
-<p>Then the combined matrix <code>X^T + $$\lamda$$L</code> is the matrix that can be inverted.</p>
+<p>Then the combined matrix <code>X^T + $\lambda$L</code> is the matrix that can be inverted.</p>
 <h3 id="regularization-of-logistic-regression">Regularization of Logistic Regression</h3>
 <p>We can regularize logistic regression in a similar way that we regularize linear regression. As a result, we can avoid overfitting.</p>
-<p><em>Regularized Cost function of Logistic Regression</em> !()[7.png]</p>
+<p><em>Regularized Cost function of Logistic Regression</em> <img src="7.png"></p>
 
       
     </div>

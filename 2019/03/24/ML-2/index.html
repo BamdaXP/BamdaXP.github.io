@@ -123,7 +123,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/24/ML-2/9.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/24/ML-2/10.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/24/ML-2/10.png">
-<meta property="og:updated_time" content="2019-04-04T07:32:56.775Z">
+<meta property="og:updated_time" content="2019-04-04T15:10:30.460Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="My Machine Learning Study Note - Part.2">
 <meta name="twitter:description" content="The course resource comes from Coursera. Here&apos;s the website  Part-1 Classification Problem Classification problem in machine learning meas that the final result y is a specific discrete collecti">
@@ -472,7 +472,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-04 15:32:56" itemprop="dateModified" datetime="2019-04-04T15:32:56+08:00">2019-04-04</time>
+                <time title="Modified: 2019-04-04 23:10:30" itemprop="dateModified" datetime="2019-04-04T23:10:30+08:00">2019-04-04</time>
               
             
           </span>
@@ -548,14 +548,14 @@
 <h2 id="desision-boundary">Desision Boundary</h2>
 <p>Meaning the boundary which class to choose.</p>
 <p>Normally: * If the possibility &gt; 0.5 =&gt;&gt; Reaches <code>true</code> * If the possibility &lt;= 0.5 =&gt;&gt; Reaches <code>false</code></p>
-<p>For <strong>Sigmoid Function</strong>, if the result of <span class="math display">\[{\theta}^{T}X\]</span> &gt; 0 ,it will be classifcated into <code>true</code>(1),else into <code>false</code>(0).</p>
+<p>For <strong>Sigmoid Function</strong>, if the result of <span class="math inline">\({\theta}^{T}X\)</span> &gt; 0 ,it will be classifcated into <code>true</code>(1),else into <code>false</code>(0).</p>
 <p>Then we can get the condition boundary classify the data.</p>
 <p><em>examples</em>: <img src="3.png"></p>
 <h3 id="non-linear-desision-boundaries">Non-linear desision boundaries</h3>
 <p>Construct a <strong>Polynomial Function</strong> that fit the training data figure the most.</p>
 <p><img src="4.png"></p>
 <h2 id="cost-functionclassification-version">Cost Function(Classification Version)</h2>
-<p>A method to auotmactically choose <span class="math display">\[\theta\]</span> set.</p>
+<p>A method to auotmactically choose <span class="math inline">\(\theta\)</span> set.</p>
 <ul>
 <li>If we directly plug the classification hypothesis function into the regression cost function, we may find that the cost function is <strong>Non-Convex</strong> and it's almost impossible to find its global minimum.</li>
 </ul>
@@ -574,7 +574,7 @@
 <p><img src="9.png"></p>
 <p>A vectorized implementation is:</p>
 <p><img src="10.png"></p>
-<p>## Optimization of Logistic Regression</p>
+<h2 id="optimization-of-logistic-regression">Optimization of Logistic Regression</h2>
 <p>To compute (Cost function) <code>J(theta)</code> and <code>partial derivative of J(theta)</code></p>
 <p>Algorithms:</p>
 <ul>
@@ -961,7 +961,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#part-1"><span class="nav-number">1.</span> <span class="nav-text">Part-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#classification-problem"><span class="nav-number">1.1.</span> <span class="nav-text">Classification Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-if-we-apply-regression-method-to-classification"><span class="nav-number">1.1.1.</span> <span class="nav-text">What if we apply regression method to classification</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#logistic-regression"><span class="nav-number">1.2.</span> <span class="nav-text">Logistic Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#logistic-regression-model"><span class="nav-number">1.2.1.</span> <span class="nav-text">Logistic Regression Model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#desision-boundary"><span class="nav-number">1.3.</span> <span class="nav-text">Desision Boundary</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#non-linear-desision-boundaries"><span class="nav-number">1.3.1.</span> <span class="nav-text">Non-linear desision boundaries</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cost-functionclassification-version"><span class="nav-number">1.4.</span> <span class="nav-text">Cost Function(Classification Version)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#simplified-cost-function"><span class="nav-number">1.4.1.</span> <span class="nav-text">Simplified Cost Function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gradient-descent"><span class="nav-number">1.5.</span> <span class="nav-text">Gradient Descent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multiclass-classification"><span class="nav-number">1.6.</span> <span class="nav-text">Multiclass Classification</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#part-1"><span class="nav-number">1.</span> <span class="nav-text">Part-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#classification-problem"><span class="nav-number">1.1.</span> <span class="nav-text">Classification Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-if-we-apply-regression-method-to-classification"><span class="nav-number">1.1.1.</span> <span class="nav-text">What if we apply regression method to classification</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#logistic-regression"><span class="nav-number">1.2.</span> <span class="nav-text">Logistic Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#logistic-regression-model"><span class="nav-number">1.2.1.</span> <span class="nav-text">Logistic Regression Model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#desision-boundary"><span class="nav-number">1.3.</span> <span class="nav-text">Desision Boundary</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#non-linear-desision-boundaries"><span class="nav-number">1.3.1.</span> <span class="nav-text">Non-linear desision boundaries</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cost-functionclassification-version"><span class="nav-number">1.4.</span> <span class="nav-text">Cost Function(Classification Version)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#simplified-cost-function"><span class="nav-number">1.4.1.</span> <span class="nav-text">Simplified Cost Function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gradient-descent"><span class="nav-number">1.5.</span> <span class="nav-text">Gradient Descent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#optimization-of-logistic-regression"><span class="nav-number">1.6.</span> <span class="nav-text">Optimization of Logistic Regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multiclass-classification"><span class="nav-number">1.7.</span> <span class="nav-text">Multiclass Classification</span></a></li></ol></li></ol></div>
             
 
           </div>
