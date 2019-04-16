@@ -112,10 +112,21 @@
 <meta property="og:site_name" content="Bamda&#39;s Magical Realm">
 <meta property="og:description" content="The course resource comes from Coursera. Here&apos;s the website  Part-1 Introduction It&apos;s a kind of simulation the neuraon of the brain. It is always used to deal with non-linear and more complex si">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-14T13:04:34.129Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/14/NN-1/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/14/NN-1/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/14/NN-1/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/14/NN-1/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/14/NN-1/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/14/NN-1/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/14/NN-1/7.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/14/NN-1/8.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/14/NN-1/9.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/14/NN-1/10.png">
+<meta property="og:updated_time" content="2019-04-16T09:28:57.589Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="My Neural Network Study Note - Part.1">
 <meta name="twitter:description" content="The course resource comes from Coursera. Here&apos;s the website  Part-1 Introduction It&apos;s a kind of simulation the neuraon of the brain. It is always used to deal with non-linear and more complex si">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/14/NN-1/1.png">
 
 
 
@@ -443,12 +454,24 @@
                 
               
 
-              <time title="Created: 2019-04-14 20:08:36 / Modified: 21:04:34" itemprop="dateCreated datePublished" datetime="2019-04-14T20:08:36+08:00">2019-04-14</time>
+              <time title="Created: 2019-04-14 20:08:36" itemprop="dateCreated datePublished" datetime="2019-04-14T20:08:36+08:00">2019-04-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-16 17:28:57" itemprop="dateModified" datetime="2019-04-16T17:28:57+08:00">2019-04-16</time>
               
             
           </span>
@@ -511,7 +534,7 @@
 <ul>
 <li>Use the combination of linear transform and non-linear transform to achieve various kinds of funtionalities.</li>
 </ul>
-<p>!()[1.png]</p>
+<p><img src="1.png"></p>
 <h3 id="components">Components</h3>
 <ul>
 <li>Input layer</li>
@@ -519,27 +542,27 @@
 <li>Output layer</li>
 <li>Activation Function(Non-linear)</li>
 </ul>
-<p>!()[2.png]</p>
+<p><img src="2.png"></p>
 <h3 id="forward-propagation">Forward Propagation</h3>
 <p><strong>One layer uses the input from the last layer to calculate it's input.</strong> A sequential working function of combination above is a whole forward propagation of a neural network to get the final result.</p>
 <p><em>Other network architectures</em></p>
-<p>!()[3.png]</p>
-<p><strong>Vectorizing Implementation</strong> We usually uses vector or matrix to represent the data and compute them. !()[4.png]</p>
-<p><em>The complete formula</em> !()[5.png] Notice that in this last step, between layer j and layer j+1, we are doing exactly the same thing as we did in logistic regression. Adding all these intermediate layers in neural networks allows us to more elegantly produce interesting and more complex non-linear hypotheses.</p>
+<p><img src="3.png"></p>
+<p><strong>Vectorizing Implementation</strong> We usually uses vector or matrix to represent the data and compute them. <img src="4.png"></p>
+<p><em>The complete formula</em> <img src="5.png"> Notice that in this last step, between layer j and layer j+1, we are doing exactly the same thing as we did in logistic regression. Adding all these intermediate layers in neural networks allows us to more elegantly produce interesting and more complex non-linear hypotheses.</p>
 <h2 id="intuition-of-neural-networks-workflow">Intuition of Neural Networks workflow</h2>
 <p>Here are some simple examples to show how the neural network works and does some exact functionalities.</p>
 <ul>
-<li><strong>Or</strong> Function !()[6.png]</li>
-<li><strong>And</strong> Function !()[7.png]</li>
+<li><strong>Or</strong> Function <img src="6.png"></li>
+<li><strong>And</strong> Function <img src="7.png"></li>
 </ul>
-<p>To summarize: !()[8.png]</p>
+<p>To summarize: <img src="8.png"></p>
 <p>In total:<strong>Different weight or parameters of the neural layer can cause huge difference of the functionalities the layer and the network can do.</strong></p>
 <h2 id="multiclass-classification-using-neural-network">Multiclass Classification using Neural Network</h2>
 <p>We usually using the node count of the output layer to determine the categories number of the classification.</p>
 <p>Do not use <em>y=1,2,3,4</em> such representation.</p>
-<p>!()[9.png]</p>
+<p><img src="9.png"></p>
 <h2 id="cost-function">Cost function</h2>
-<p>In total, the form of cost function can be represented like this: !()[10.png]</p>
+<p>In total, the form of cost function can be represented like this: <img src="10.png"></p>
 <p>In the regularization part, after the square brackets, we must account for multiple theta matrices. The number of columns in our current theta matrix is equal to the number of nodes in our current layer (including the bias unit). The number of rows in our current theta matrix is equal to the number of nodes in the next layer (excluding the bias unit). As before with logistic regression, we square every term.</p>
 <p>Note:</p>
 <ul>
