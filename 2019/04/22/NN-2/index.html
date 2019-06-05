@@ -104,15 +104,22 @@
 
 
 
-  <meta name="keywords" content="Gamer Coder Furry">
+  <meta name="description" content="#Section1 ## Gradient Checking This function is to make sure that the nerual network works correctly in forward propagation and back propagation. Use a small segment betweent two points gradients to">
+<meta name="keywords" content="Machine Learning,Neural Network">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bamda&#39;s Magical Realm">
+<meta property="og:title" content="My Neural Network Study Note - Part.2">
 <meta property="og:url" content="http://yoursite.com/2019/04/22/NN-2/index.html">
 <meta property="og:site_name" content="Bamda&#39;s Magical Realm">
+<meta property="og:description" content="#Section1 ## Gradient Checking This function is to make sure that the nerual network works correctly in forward propagation and back propagation. Use a small segment betweent two points gradients to">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-22T15:51:38.307Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/22/NN-2/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/22/NN-2/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/22/NN-2/3.png">
+<meta property="og:updated_time" content="2019-06-05T09:23:31.372Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bamda&#39;s Magical Realm">
+<meta name="twitter:title" content="My Neural Network Study Note - Part.2">
+<meta name="twitter:description" content="#Section1 ## Gradient Checking This function is to make sure that the nerual network works correctly in forward propagation and back propagation. Use a small segment betweent two points gradients to">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/22/NN-2/1.png">
 
 
 
@@ -129,7 +136,7 @@
   };
 </script>
 
-  <title> | Bamda's Magical Realm</title>
+  <title>My Neural Network Study Note - Part.2 | Bamda's Magical Realm</title>
   
 
 
@@ -414,7 +421,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">My Neural Network Study Note - Part.2
 
               
             
@@ -444,8 +451,42 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-05 17:23:31" itemprop="dateModified" datetime="2019-06-05T17:23:31+08:00">2019-06-05</time>
+              
+            
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Neural-Network/" itemprop="url" rel="index"><span itemprop="name">Neural Network</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -475,7 +516,39 @@
       
 
       
-        
+        <p>#Section1 ## Gradient Checking This function is to make sure that the nerual network works correctly in forward propagation and back propagation.</p>
+<p>Use a small segment betweent two points gradients to calculate the partial derivatives of a funtion. <img src="1.png"> <img src="2.png"> <img src="3.png"> Usually <span class="math inline">\({\epsilon}\)</span> is about 1e-4 large.</p>
+<p><strong>Make sure the approximate gradient and the DVector in the back propagation give similar results.</strong></p>
+<h3 id="implementation-notes">Implementation notes:</h3>
+<ul>
+<li>Once you have verified once that your backpropagation algorithm is correct, you don't need to compute gradApprox again.</li>
+<li><strong>The code to compute gradApprox can be very slow.</strong>Much slower than the <span class="math inline">\({\delta}\)</span> computation.</li>
+</ul>
+<h2 id="random-initialization">Random Initialization</h2>
+<p>The function to pick a initial value for each parameter <span class="math inline">\({\theta}\)</span>.</p>
+<h3 id="zero-initialization">Zero initialization</h3>
+<p>In this function, we simply pick <strong>zero</strong> as the initial value of all the <span class="math inline">\({\theta}\)</span> parameters.</p>
+<p>Howerver, after each update, parameters corresponding to inputs going into each of two hidden units are <strong>identical</strong> which means the neural network suffers from symmetrical problem, all the results of every unit are the same.</p>
+<h3 id="random-initializationsymmetry-breaking">Random initialization:Symmetry breaking</h3>
+<p>In this function, we simply pick a random number as the initial value of all the <span class="math inline">\({\theta}\)</span> parameters.</p>
+<h1 id="section2">Section2</h1>
+<h2 id="summary">Summary</h2>
+<p>Here we summarizes how neural network works.</p>
+<p>First, pick a network architecture; choose the layout of your neural network, including how many hidden units in each layer and how many layers in total you want to have.</p>
+<ul>
+<li><p>Number of input units = dimension of features <span class="math inline">\({x^{(i)}}\)</span></p></li>
+<li><p>Number of output units = number of classes</p></li>
+<li><p>Number of hidden units per layer = usually more the better (must balance with cost of computation as it increases with more hidden units)</p></li>
+<li><p>Defaults: 1 hidden layer. If you have more than 1 hidden layer, then it is recommended that you have the same number of units in every hidden layer. Training a Neural Network</p></li>
+</ul>
+<h3 id="randomly-initialize-the-weights">Randomly initialize the weights</h3>
+<ul>
+<li><p>Implement forward propagation to get <span class="math inline">\({hΘ(x(i))}\)</span> for any <span class="math inline">\({x^{(i)}}\)</span></p></li>
+<li><p>Implement the cost function</p></li>
+<li><p>Implement backpropagation to compute partial derivatives</p></li>
+<li><p>Use gradient checking to confirm that your backpropagation works. Then disable gradient checking.</p></li>
+<li><p>Use gradient descent or a built-in optimization function to minimize the cost function with the weights in theta.</p></li>
+</ul>
 
       
     </div>
@@ -547,7 +620,7 @@
   <li class="post-copyright-link">
     <strong>Post link: </strong>
     
-    <a href="http://yoursite.com/2019/04/22/NN-2/">http://yoursite.com/2019/04/22/NN-2/</a>
+    <a href="http://yoursite.com/2019/04/22/NN-2/" title="My Neural Network Study Note - Part.2">http://yoursite.com/2019/04/22/NN-2/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.</li>
@@ -557,6 +630,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+          
+            <a href="/tags/Neural-Network/" rel="tag"># Neural Network</a>
+          
+        </div>
       
 
       
@@ -644,8 +725,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -815,6 +905,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#implementation-notes"><span class="nav-number">1.</span> <span class="nav-text">Implementation notes:</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#random-initialization"><span class="nav-number"></span> <span class="nav-text">Random Initialization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#zero-initialization"><span class="nav-number">1.</span> <span class="nav-text">Zero initialization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#random-initializationsymmetry-breaking"><span class="nav-number">2.</span> <span class="nav-text">Random initialization:Symmetry breaking</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section2"><span class="nav-number"></span> <span class="nav-text">Section2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#summary"><span class="nav-number"></span> <span class="nav-text">Summary</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#randomly-initialize-the-weights"><span class="nav-number">1.</span> <span class="nav-text">Randomly initialize the weights</span></a></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
