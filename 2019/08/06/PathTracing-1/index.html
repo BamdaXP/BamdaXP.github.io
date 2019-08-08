@@ -123,7 +123,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/08/06/PathTracing-1/9.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/06/PathTracing-1/10.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/06/PathTracing-1/11.png">
-<meta property="og:updated_time" content="2019-08-06T10:32:58.183Z">
+<meta property="og:image" content="http://yoursite.com/2019/08/06/PathTracing-1/12.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/06/PathTracing-1/13.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/06/PathTracing-1/14.png">
+<meta property="og:updated_time" content="2019-08-08T12:35:51.614Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Path Tracing Study Note - Part.1">
 <meta name="twitter:description" content="Rendering Equation Reflection Equation   The reflected radiance Lr is computed by integrating the incoming radiance over a hemisphere centered at a point of the surface and oriented such that its">
@@ -455,12 +458,24 @@
                 
               
 
-              <time title="Created: 2019-08-06 16:53:45 / Modified: 18:32:58" itemprop="dateCreated datePublished" datetime="2019-08-06T16:53:45+08:00">2019-08-06</time>
+              <time title="Created: 2019-08-06 16:53:45" itemprop="dateCreated datePublished" datetime="2019-08-06T16:53:45+08:00">2019-08-06</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-08-08 20:35:51" itemprop="dateModified" datetime="2019-08-08T20:35:51+08:00">2019-08-08</time>
               
             
           </span>
@@ -539,6 +554,35 @@
 <p>The rendering equation is sometimes written more compactly in operator form. An operator is a method for mapping a function to another function. In our case, the function is the radiance.</p>
 <p><img src="10.png"></p>
 <p><img src="11.png"></p>
+<p><strong>A path from point ~x1 to ~x5</strong> <img src="12.png"></p>
+<h3 id="final-result-of-integral-formula">Final result of integral formula</h3>
+<p><img src="13.png"></p>
+<p>This integral has a very simple geometric and physical intuition. It represents a family of light paths. * Each path is characterized by the number of bounces or length n. * There are many possible paths of a given length. Paths themselves are specified by a set vertices.</p>
+<p>The first vertex is a point on the light source and subsequent vertices are points on reflecting surfaces. The total contribution due to all paths of a given length is formed by integrating over all possible light and surface positions. This involves doing n integrals over surface areas.</p>
+<p>However, <strong>we must weight paths properly</strong> when performing the integral. A integrand for a particular path consists of alternating sequence of geometry and reflection terms. Finally, the final solution to the equation is the sum of paths of all lengths; or more simply, all possible light paths.</p>
+<p>Note that these are very high dimensional integrals. Specifically, for a path of length n the integral is over a 2n dimensional space. The integral also involves very complicated integrands that include visibility terms and complex reflection functions defined over arbitrary shapes.</p>
+<p><em>It turns out these complexities is whatmakes Monte Carlo the method of choice for solving the rendering equation.</em></p>
+<h2 id="monte-carlo-path-tracing">Monte Carlo Path Tracing</h2>
+<p>There is one more useful theoretical and practical step, and that is to relate thesolution of the rendering equation to the process of image formation in the camera.</p>
+<p>The equation that governs this process is the Measurement Equation</p>
+<p><img src="14.png"></p>
+<ul>
+<li>The response function R(~x, ~ω, t) depends on the the pixel filter (the ~x dependence),the aperture (the ~ω dependence), and the shutter (the t dependence).</li>
+<li>Other factorssuch as transformations of rays by the lens system and spectral sensitivities mayalso be included, but we will ignore these factors to simplify the presentation</li>
+</ul>
+<h3 id="sampling">Sampling</h3>
+<p>As seen above, the pixels value in the image is a function that involves nested integrals. These integrals are very complicated, but we can easily evaluate the integrand which corresponds to sampling the function.</p>
+<ul>
+<li>Sampling a pixel over (x, y) prefilters the image and reduces aliasing.</li>
+<li>Sampling the camera aperture (u, v) produces depth of field.</li>
+<li>Sampling in time t (the shutter) produces motion blur.</li>
+<li>Sampling in wavelength λ simulates spectral effects such as dispersion</li>
+<li>Sampling the reflection function produces blurred reflection.</li>
+<li>Sampling the tranmission function produces blurred transmission.</li>
+<li>Sampling the solid angle of the light sources produces penumbras and soft shadows.</li>
+<li>Sampling paths accounts for interreflection.</li>
+</ul>
+<p>Sampling in x, y, u, v and t has been discussed previously. Sampling light sources and performing hemispherical integration has also been discussed. What remains is to sample paths.</p>
 
       
     </div>
@@ -918,7 +962,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#rendering-equation"><span class="nav-number">1.</span> <span class="nav-text">Rendering Equation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#reflection-equation"><span class="nav-number">1.1.</span> <span class="nav-text">Reflection Equation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#one-of-the-basic-laws-of-geometric-optics-is-that-radiance-does-not-changeas-light-propagates-assuming-there-is-no-scattering-or-absorption.-in-free-spacewhere-light-travels-along-straight-lines-radiance-does-not-change-along-a-ray."><span class="nav-number">1.1.1.</span> <span class="nav-text">One of the basic laws of geometric optics is that radiance does not changeas light propagates (assuming there is no scattering or absorption). In free space,where light travels along straight lines, radiance does not change along a ray.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#visibility"><span class="nav-number">1.1.2.</span> <span class="nav-text">Visibility</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rendering-equation-1"><span class="nav-number">1.2.</span> <span class="nav-text">Rendering Equation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#emmition-and-energy-balance"><span class="nav-number">1.2.1.</span> <span class="nav-text">Emmition and Energy balance</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#representation"><span class="nav-number">1.3.</span> <span class="nav-text">Representation</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#rendering-equation"><span class="nav-number">1.</span> <span class="nav-text">Rendering Equation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#reflection-equation"><span class="nav-number">1.1.</span> <span class="nav-text">Reflection Equation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#one-of-the-basic-laws-of-geometric-optics-is-that-radiance-does-not-changeas-light-propagates-assuming-there-is-no-scattering-or-absorption.-in-free-spacewhere-light-travels-along-straight-lines-radiance-does-not-change-along-a-ray."><span class="nav-number">1.1.1.</span> <span class="nav-text">One of the basic laws of geometric optics is that radiance does not changeas light propagates (assuming there is no scattering or absorption). In free space,where light travels along straight lines, radiance does not change along a ray.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#visibility"><span class="nav-number">1.1.2.</span> <span class="nav-text">Visibility</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rendering-equation-1"><span class="nav-number">1.2.</span> <span class="nav-text">Rendering Equation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#emmition-and-energy-balance"><span class="nav-number">1.2.1.</span> <span class="nav-text">Emmition and Energy balance</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#representation"><span class="nav-number">1.3.</span> <span class="nav-text">Representation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#final-result-of-integral-formula"><span class="nav-number">1.3.1.</span> <span class="nav-text">Final result of integral formula</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#monte-carlo-path-tracing"><span class="nav-number">1.4.</span> <span class="nav-text">Monte Carlo Path Tracing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sampling"><span class="nav-number">1.4.1.</span> <span class="nav-text">Sampling</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
